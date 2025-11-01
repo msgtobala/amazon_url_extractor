@@ -29,7 +29,8 @@ class AsinExtractor {
       }
 
       // Try direct ASIN in path
-      final directMatch = AmazonUrlPatterns.directAsinPattern.firstMatch(uri.path);
+      final directMatch =
+          AmazonUrlPatterns.directAsinPattern.firstMatch(uri.path);
       if (directMatch != null && directMatch.groupCount >= 1) {
         final asin = directMatch.group(1)!.toUpperCase();
         if (_isValidAsin(asin)) {
@@ -38,7 +39,8 @@ class AsinExtractor {
       }
 
       // Try ASIN in query parameters
-      final asinQuery = uri.queryParameters['asin'] ?? uri.queryParameters['ASIN'];
+      final asinQuery =
+          uri.queryParameters['asin'] ?? uri.queryParameters['ASIN'];
       if (asinQuery != null) {
         final asin = asinQuery.toUpperCase();
         if (_isValidAsin(asin)) {
@@ -47,7 +49,8 @@ class AsinExtractor {
       }
 
       // Try ASIN in query string (regex)
-      final queryMatch = AmazonUrlPatterns.asinQueryPattern.firstMatch(uri.query);
+      final queryMatch =
+          AmazonUrlPatterns.asinQueryPattern.firstMatch(uri.query);
       if (queryMatch != null && queryMatch.groupCount >= 1) {
         final asin = queryMatch.group(1)!.toUpperCase();
         if (_isValidAsin(asin)) {
@@ -87,4 +90,3 @@ class AsinExtractor {
     return asin;
   }
 }
-

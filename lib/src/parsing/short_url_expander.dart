@@ -21,22 +21,22 @@ class ShortUrlExpander {
 
       // Make HEAD request to get final URL
       final response = await http.head(Uri.parse(shortUrl)).timeout(
-            const Duration(seconds: 10),
-            onTimeout: () {
-              throw UrlExpansionException('Request timeout');
-            },
-          );
+        const Duration(seconds: 10),
+        onTimeout: () {
+          throw UrlExpansionException('Request timeout');
+        },
+      );
 
       // Check for redirect location
       String? expandedUrl = response.headers['location'];
       if (expandedUrl == null) {
         // Try GET request as fallback
         final getResponse = await http.get(Uri.parse(shortUrl)).timeout(
-              const Duration(seconds: 10),
-              onTimeout: () {
-                throw UrlExpansionException('Request timeout');
-              },
-            );
+          const Duration(seconds: 10),
+          onTimeout: () {
+            throw UrlExpansionException('Request timeout');
+          },
+        );
 
         if (getResponse.statusCode >= 300 && getResponse.statusCode < 400) {
           expandedUrl = getResponse.headers['location'];
@@ -95,4 +95,3 @@ class ShortUrlExpander {
     return results;
   }
 }
-

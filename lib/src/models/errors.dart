@@ -47,4 +47,3 @@ class ApiException extends AmazonUrlExtractorException {
   final int? statusCode;
   ApiException(super.message, [this.statusCode]);
 }
-

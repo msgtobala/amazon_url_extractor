@@ -2,7 +2,7 @@ import '../models/errors.dart';
 import '../models/results.dart';
 
 /// Amazon Product Advertising API client (optional feature)
-/// 
+///
 /// Note: Amazon PA-API requires API credentials and has rate limits.
 /// This is a placeholder interface. For full implementation, you should
 /// use the official AWS SDK or implement proper AWS Signature Version 4 signing.
@@ -22,7 +22,7 @@ class AmazonProductAdvertisingApi {
   });
 
   /// Get product information by ASIN
-  /// 
+  ///
   /// Note: This requires proper AWS Signature Version 4 implementation.
   /// Use AWS SDK or implement signing according to Amazon PA-API documentation.
   Future<ProductInfo> getProduct(String asin) async {

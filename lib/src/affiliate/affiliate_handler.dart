@@ -9,7 +9,8 @@ class AffiliateHandler {
       final uri = Uri.parse(url);
 
       // Check query parameters
-      String? tag = uri.queryParameters['tag'] ?? uri.queryParameters['AssociateTag'];
+      String? tag =
+          uri.queryParameters['tag'] ?? uri.queryParameters['AssociateTag'];
       String? linkCode = uri.queryParameters['linkCode'];
 
       // Try regex patterns
@@ -65,4 +66,3 @@ class AffiliateHandler {
     }
   }
 }
-

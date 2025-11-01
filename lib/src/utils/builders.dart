@@ -18,7 +18,8 @@ class AmazonUrlBuilders {
         domain = domainInfo.domain;
       } else {
         // Assume domainOrUrl is already a domain
-        domain = domainOrUrl.replaceAll(RegExp(r'^https?://'), '').split('/').first;
+        domain =
+            domainOrUrl.replaceAll(RegExp(r'^https?://'), '').split('/').first;
       }
     } catch (_) {
       domain = 'amazon.com'; // Default fallback
@@ -68,4 +69,3 @@ class AmazonUrlBuilders {
     }
   }
 }
-

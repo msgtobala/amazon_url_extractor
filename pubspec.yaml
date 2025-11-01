@@ -1,6 +1,6 @@
 name: amazon_url_extractor
 description: "Extract ASIN, product info, prices, and metadata from Amazon URLs. Supports all Amazon domains, affiliate links, and shortened URLs."
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/msgtobala/amazon_url_extractor
 repository: https://github.com/msgtobala/amazon_url_extractor
 issue_tracker: https://github.com/msgtobala/amazon_url_extractor/issues

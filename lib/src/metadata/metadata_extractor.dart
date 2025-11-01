@@ -33,7 +33,8 @@ class MetadataExtractor {
       }
 
       // Try query parameter
-      final titleParam = uri.queryParameters['title'] ?? uri.queryParameters['Title'];
+      final titleParam =
+          uri.queryParameters['title'] ?? uri.queryParameters['Title'];
       if (titleParam != null) {
         try {
           return Uri.decodeComponent(titleParam);
@@ -54,7 +55,8 @@ class MetadataExtractor {
       final uri = Uri.parse(url);
 
       // Try query parameters
-      final priceParam = uri.queryParameters['price'] ?? uri.queryParameters['amount'];
+      final priceParam =
+          uri.queryParameters['price'] ?? uri.queryParameters['amount'];
       if (priceParam != null) {
         try {
           final amount = double.parse(priceParam);
@@ -122,7 +124,8 @@ class MetadataExtractor {
   static SellerInfo? extractSellerInfo(String url) {
     try {
       final uri = Uri.parse(url);
-      final sellerId = uri.queryParameters['seller'] ?? uri.queryParameters['merchantId'];
+      final sellerId =
+          uri.queryParameters['seller'] ?? uri.queryParameters['merchantId'];
 
       if (sellerId == null) {
         final sellerMatch = AmazonUrlPatterns.sellerPattern.firstMatch(url);
@@ -164,4 +167,3 @@ class MetadataExtractor {
     return null;
   }
 }
-

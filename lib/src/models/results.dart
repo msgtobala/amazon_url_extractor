@@ -209,7 +209,8 @@ class AffiliateInfo {
         'associateTag': associateTag,
       };
 
-  bool get hasAffiliateTag => tag != null || linkCode != null || associateTag != null;
+  bool get hasAffiliateTag =>
+      tag != null || linkCode != null || associateTag != null;
 }
 
 /// Amazon domain information
@@ -239,4 +240,3 @@ enum UrlType {
   cart,
   unknown,
 }
-

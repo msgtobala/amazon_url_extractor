@@ -187,4 +187,3 @@ class _AmazonExtractorExampleState extends State<AmazonExtractorExample> {
     );
   }
 }
-

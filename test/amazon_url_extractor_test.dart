@@ -75,28 +75,38 @@ void main() {
     });
 
     test('domain mapping', () {
-      final domain = DomainMapper.getDomainInfo('https://www.amazon.com/dp/B08N5WRWNW');
+      final domain =
+          DomainMapper.getDomainInfo('https://www.amazon.com/dp/B08N5WRWNW');
       expect(domain, isNotNull);
       expect(domain!.countryCode, equals('US'));
       expect(domain.currency, equals('USD'));
 
-      final domainIn = DomainMapper.getDomainInfo('https://www.amazon.in/dp/B08N5WRWNW');
+      final domainIn =
+          DomainMapper.getDomainInfo('https://www.amazon.in/dp/B08N5WRWNW');
       expect(domainIn, isNotNull);
       expect(domainIn!.countryCode, equals('IN'));
       expect(domainIn.currency, equals('INR'));
     });
 
     test('validate Amazon URL', () {
-      expect(AmazonUrlValidators.isValidAmazonUrl('https://www.amazon.com/dp/B08N5WRWNW'), isTrue);
-      expect(AmazonUrlValidators.isValidAmazonUrl('https://www.amazon.in/dp/B08N5WRWNW'), isTrue);
-      expect(AmazonUrlValidators.isValidAmazonUrl('https://www.google.com'), isFalse);
+      expect(
+          AmazonUrlValidators.isValidAmazonUrl(
+              'https://www.amazon.com/dp/B08N5WRWNW'),
+          isTrue);
+      expect(
+          AmazonUrlValidators.isValidAmazonUrl(
+              'https://www.amazon.in/dp/B08N5WRWNW'),
+          isTrue);
+      expect(AmazonUrlValidators.isValidAmazonUrl('https://www.google.com'),
+          isFalse);
       expect(AmazonUrlValidators.isValidAmazonUrl('not-a-url'), isFalse);
     });
 
     test('sanitize URL', () {
-      const url = 'https://www.amazon.com/dp/B08N5WRWNW?tag=test-20&ref=sr_1_1&sr=8-1';
+      const url =
+          'https://www.amazon.com/dp/B08N5WRWNW?tag=test-20&ref=sr_1_1&sr=8-1';
       final sanitized = AmazonUrlSanitizer.sanitizeUrl(url);
-      
+
       expect(sanitized, contains('B08N5WRWNW'));
       expect(sanitized, isNot(contains('sr=')));
       expect(sanitized, isNot(contains('ref=')));
@@ -105,7 +115,7 @@ void main() {
     test('build canonical URL', () {
       const url = 'https://www.amazon.com/gp/product/B08N5WRWNW?tag=test-20';
       final canonical = AmazonUrlNormalizer.canonicalProductUrl(url);
-      
+
       expect(canonical, equals('https://amazon.com/dp/B08N5WRWNW'));
     });
 
@@ -148,25 +158,25 @@ void main() {
   group('Cache', () {
     test('cache operations', () {
       final cache = CacheManager(maxSize: 10);
-      
+
       cache.put('key1', 'value1');
       expect(cache.get('key1'), equals('value1'));
       expect(cache.containsKey('key1'), isTrue);
-      
+
       cache.put('key2', 'value2');
       expect(cache.size, equals(2));
-      
+
       cache.clear();
       expect(cache.size, equals(0));
     });
 
     test('LRU eviction', () {
       final cache = CacheManager(maxSize: 2);
-      
+
       cache.put('key1', 'value1');
       cache.put('key2', 'value2');
       cache.put('key3', 'value3'); // Should evict key1
-      
+
       expect(cache.containsKey('key1'), isFalse);
       expect(cache.containsKey('key2'), isTrue);
       expect(cache.containsKey('key3'), isTrue);

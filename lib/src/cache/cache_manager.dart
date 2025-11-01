@@ -67,4 +67,3 @@ class UrlExpansionCache {
 
   static int get size => _instance.size;
 }
-
