@@ -80,7 +80,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- N/A
+- Fixed deprecation warnings by replacing `withOpacity()` with `withValues(alpha:)` in Flutter widgets
+- Fixed search URL detection in URL type detection
+- Fixed wishlist pattern matching to be case-insensitive
 
 ### Security
 
