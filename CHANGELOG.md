@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-11-01
+
+### Fixed
+
+- Deprecation warnings by replacing `withOpacity()` with `withValues(alpha:)` in Flutter widgets
+- Search URL detection in URL type detection
+- Wishlist pattern matching to be case-insensitive
+
 ## [0.1.0] - 2024-12-19
 
 ### Added
@@ -80,9 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fixed deprecation warnings by replacing `withOpacity()` with `withValues(alpha:)` in Flutter widgets
-- Fixed search URL detection in URL type detection
-- Fixed wishlist pattern matching to be case-insensitive
+- N/A
 
 ### Security
 
