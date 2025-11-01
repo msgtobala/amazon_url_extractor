@@ -6,9 +6,7 @@ class DomainMapper {
   /// Get domain information from URL or domain string
   static AmazonDomain? getDomainInfo(String urlOrDomain) {
     String? domain = SupportedDomains.extractDomain(urlOrDomain);
-    if (domain == null) {
-      domain = SupportedDomains.normalizeDomain(urlOrDomain);
-    }
+    domain ??= SupportedDomains.normalizeDomain(urlOrDomain);
 
     if (!SupportedDomains.isSupported(domain)) {
       return null;
@@ -49,4 +47,3 @@ class DomainMapper {
     return SupportedDomains.isSupported(domain);
   }
 }
-
